@@ -1,0 +1,224 @@
+export default function Home() {
+  return (
+    
+  <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinâmicas de Apoio - Gamificação para Saúde Mental</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__brand">
+                <h2>🎮 Dinâmicas de Apoio</h2>
+            </div>
+            <ul class="nav__menu">
+                <li><a href="#home" class="nav__link">Início</a></li>
+                <li><a href="#categorias" class="nav__link">Categorias</a></li>
+                <li><a href="#sobre" class="nav__link">Sobre</a></li>
+                <li><a href="#recursos" class="nav__link">Recursos</a></li>
+                <li><button id="favoritesBtn" class="btn btn--outline btn--sm">❤️ Favoritos (<span id="favCount">0</span>)</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <!-- Home Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero__content">
+                    <h1 class="hero__title">Transforme Cuidado em Diversão</h1>
+                    <p class="hero__subtitle">Descubra dinâmicas gamificadas que fortalecem vínculos e promovem bem-estar mental de forma lúdica e significativa</p>
+                    <div class="hero__actions">
+                        <button id="exploreBtn" class="btn btn--primary btn--lg">Explorar Dinâmicas</button>
+                        <button id="learnMoreBtn" class="btn btn--outline btn--lg">Saiba Mais</button>
+                    </div>
+                </div>
+                <div class="hero__benefits">
+                    <div class="benefits-grid" id="benefitsGrid">
+                        <!-- Benefits will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section id="categorias" class="categories-section">
+            <div class="container">
+                <h2 class="section-title">Explore por Categoria</h2>
+                <div class="categories-grid" id="categoriesGrid">
+                    <!-- Categories will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamics Section -->
+        <section id="dinamicas" class="dynamics-section hidden">
+            <div class="container">
+                <div class="dynamics-header">
+                    <h2 class="section-title" id="dynamicsTitle">Dinâmicas</h2>
+                    <button id="backToCategoriesBtn" class="btn btn--outline">← Voltar às Categorias</button>
+                </div>
+                
+                <!-- Filters -->
+                <div class="filters">
+                    <div class="filters__search">
+                        <input type="text" id="searchInput" placeholder="Buscar dinâmicas..." class="form-control">
+                    </div>
+                    <div class="filters__options">
+                        <select id="difficultyFilter" class="form-control">
+                            <option value="">Todas as dificuldades</option>
+                            <option value="Fácil">Fácil</option>
+                            <option value="Médio">Médio</option>
+                            <option value="Difícil">Difícil</option>
+                            <option value="Progressivo">Progressivo</option>
+                        </select>
+                        <select id="participantsFilter" class="form-control">
+                            <option value="">Qualquer quantidade</option>
+                            <option value="1">Individual</option>
+                            <option value="2-4">2-4 pessoas</option>
+                            <option value="5-8">5-8 pessoas</option>
+                            <option value="8+">Mais de 8 pessoas</option>
+                        </select>
+                        <select id="durationFilter" class="form-control">
+                            <option value="">Qualquer duração</option>
+                            <option value="15">Até 15 minutos</option>
+                            <option value="30">Até 30 minutos</option>
+                            <option value="60">Até 60 minutos</option>
+                            <option value="90+">Mais de 90 minutos</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="dynamics-grid" id="dynamicsGrid">
+                    <!-- Dynamics will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="sobre" class="about-section">
+            <div class="container">
+                <h2 class="section-title">Sobre a Gamificação na Saúde Mental</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Por que dinâmicas lúdicas funcionam?</h3>
+                        <p>A gamificação na saúde mental combina elementos de jogos com práticas terapêuticas, criando experiências envolventes que motivam a participação e facilitam o processo de cura e crescimento pessoal.</p>
+                        
+                        <h4>Benefícios Científicos:</h4>
+                        <ul>
+                            <li><strong>Liberação de dopamina:</strong> Atividades prazerosas aumentam neurotransmissores do bem-estar</li>
+                            <li><strong>Redução do cortisol:</strong> O lúdico diminui hormônios do estresse</li>
+                            <li><strong>Fortalecimento neural:</strong> Novas experiências criam conexões cerebrais positivas</li>
+                            <li><strong>Melhora da autoestima:</strong> Conquistas graduais constroem confiança</li>
+                        </ul>
+
+                        <h4>Como usar este site:</h4>
+                        <ol>
+                            <li>Escolha a categoria mais apropriada para sua situação</li>
+                            <li>Explore as dinâmicas disponíveis usando os filtros</li>
+                            <li>Leia atentamente os objetivos e materiais necessários</li>
+                            <li>Adapte as atividades conforme suas necessidades</li>
+                            <li>Favorite suas dinâmicas preferidas para acesso rápido</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section id="recursos" class="resources-section">
+            <div class="container">
+                <h2 class="section-title">Recursos Adicionais</h2>
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h3>🛡️ Criando um Ambiente Seguro</h3>
+                        <p>Estabeleça regras de confidencialidade, respeito mútuo e consentimento antes de iniciar qualquer dinâmica de grupo.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h3>📞 Quando Procurar Ajuda Profissional</h3>
+                        <p>Se sintomas persistem ou se intensificam, procure um psicólogo ou psiquiatra. As dinâmicas são complementares, não substituem tratamento profissional.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h3>🎯 Adaptações Personalizadas</h3>
+                        <p>Sinta-se livre para modificar as atividades conforme a idade, cultura e necessidades específicas dos participantes.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h3>📚 Materiais Complementares</h3>
+                        <p>Considere ter sempre disponível: papel, canetas coloridas, objetos sensoriais e um kit de primeiros socorros emocional.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Favorites Section -->
+        <section id="favorites" class="favorites-section hidden">
+            <div class="container">
+                <div class="favorites-header">
+                    <h2 class="section-title">Suas Dinâmicas Favoritas</h2>
+                    <button id="backFromFavoritesBtn" class="btn btn--outline">← Voltar</button>
+                </div>
+                <div class="dynamics-grid" id="favoritesGrid">
+                    <!-- Favorite dynamics will be populated by JavaScript -->
+                </div>
+                <div id="emptyFavorites" class="empty-state hidden">
+                    <p>Você ainda não favoritou nenhuma dinâmica. Explore as categorias e clique no ❤️ para adicionar suas preferidas!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Dynamic Detail Modal -->
+    <div id="dynamicModal" class="modal hidden">
+        <div class="modal__overlay">
+            <div class="modal__content">
+                <div class="modal__header">
+                    <h2 id="modalTitle">Título da Dinâmica</h2>
+                    <button id="closeModal" class="modal__close">✕</button>
+                </div>
+                <div class="modal__body" id="modalBody">
+                    <!-- Modal content will be populated by JavaScript -->
+                </div>
+                <div class="modal__footer">
+                    <button id="favoriteBtn" class="btn btn--outline">❤️ Favoritar</button>
+                    <button id="startTimerBtn" class="btn btn--primary">⏱️ Iniciar Timer</button>
+                    <button id="shareBtn" class="btn btn--secondary">🔗 Compartilhar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Timer Modal -->
+    <div id="timerModal" class="modal hidden">
+        <div class="modal__overlay">
+            <div class="modal__content modal__content--small">
+                <div class="modal__header">
+                    <h3>Timer da Atividade</h3>
+                    <button id="closeTimerModal" class="modal__close">✕</button>
+                </div>
+                <div class="modal__body">
+                    <div class="timer-display">
+                        <div class="timer-time" id="timerDisplay">00:00</div>
+                        <div class="timer-controls">
+                            <button id="startPauseTimer" class="btn btn--primary">▶️ Iniciar</button>
+                            <button id="resetTimer" class="btn btn--outline">🔄 Resetar</button>
+                        </div>
+                        <div class="timer-input">
+                            <label for="timerMinutes" class="form-label">Definir tempo (minutos):</label>
+                            <input type="number" id="timerMinutes" class="form-control" min="1" max="180" value="30">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+  )
+}
