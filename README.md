@@ -73,7 +73,7 @@ npm install
 2. Rodar em desenvolvimento:
 
 ```bash
-npm run dev    # ou `node server.js` se não usar nodemon
+npm run dev  
 ```
 
 3. Abrir no navegador:
@@ -162,40 +162,6 @@ docker run -d --name mental-health-app -p 8080:8080 --restart unless-stopped men
 http://<EC2_PUBLIC_IP>:8080
 ```
 
----
-
-# Deploy automatizado (GitHub Actions) — sugestão
-
-Use uma GitHub Action que, ao `push` na `main`, SSH na EC2 e executa `git pull` + `docker build` + `docker run`. Exemplo (resumido):
-
-```yaml
-# .github/workflows/deploy.yml (exemplo)
-on: [push]
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: SSH deploy
-        uses: appleboy/ssh-action@v0.1.7
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ubuntu
-          key: ${{ secrets.EC2_SSH_KEY }}
-          script: |
-            cd ~/meu-projeto || git clone https://github.com/SEU_USUARIO/SEU_REPO.git ~/meu-projeto
-            cd ~/meu-projeto
-            git fetch --all
-            git reset --hard origin/main
-            docker build -t mental-health-app:latest .
-            docker rm -f mental-health-app 2>/dev/null || true
-            docker run -d --name mental-health-app -p 8080:8080 --restart unless-stopped mental-health-app:latest
-```
-
-> Configure secrets no GitHub: `EC2_HOST`, `EC2_SSH_KEY` (sua PEM em formato seguro), etc.
-
----
-
 # Rede / AWS — VPC, Security Groups e isolamento
 
 ### Servir publicamente (frontend)
@@ -214,7 +180,7 @@ jobs:
 
   * Inbound:
 
-    * Porta do backend (por ex. 3000) — Source: `frontend-sg` (permite que apenas instâncias com esse SG comuniquem)
+    * Porta do backend (por ex. 25000) — Source: `frontend-sg` (permite que apenas instâncias com esse SG comuniquem)
   * Sem regras inbound públicas (não expor à internet)
 * Colocar backend em subnet **privada** e frontend em subnet **pública**.
 * Usar IGW + route table para subnets públicas.
@@ -225,10 +191,6 @@ jobs:
 * Externamente: `curl -I http://<EC2_PUBLIC_IP>:8080`
 
 ---
-
-# Testes e verificação
-
-// Colocar imagens aqui rodando.
 
 ### Do seu computador
 
