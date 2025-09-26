@@ -2,6 +2,7 @@
 
 Uma aplicação web moderna e minimalista para promover dinâmicas gamificadas de apoio em saúde mental para diferentes contextos (família, amigos, comunidade e autoconhecimento). Front-end em HTML/CSS/JS + back-end mínimo em Node.js (Express). Empacotada com Docker e preparada para deploy em EC2 (AWS).
 
+Link de vídeo com contextualização: https://youtu.be/nKaA3C6cYsE
 
 # Visão geral
 
