@@ -5,14 +5,14 @@ Uma aplicação web moderna e minimalista para promover dinâmicas gamificadas d
 
 # Visão geral
 
-Mental Health Dynamics é um catálogo de dinâmicas e atividades gamificadas para apoiar a saúde mental em contextos familiares, entre amigos e em comunidade. O projeto inclui:
+O projeto é um catálogo de dinâmicas e atividades gamificadas para apoiar a saúde mental em contextos familiares, entre amigos e em comunidade. O projeto inclui:
 
 * Conteúdo (dinâmicas, categorias, dicas) em JSON/JS.
 * Front-end em HTML/CSS/vanilla JS para interação (filtros, favoritos, modal, timer).
 * Back-end minimal (Node.js + Express) que serve arquivos estáticos e expõe APIs simples (opcional).
 * Empacotamento em Docker para facilitar deploy.
 
----
+----------------------------------------------------------------------------
 
 # Funcionalidades
 
@@ -23,7 +23,7 @@ Mental Health Dynamics é um catálogo de dinâmicas e atividades gamificadas pa
 * Timer de atividade.
 * API simples (`/api/saudacao`) pronta para extensão.
 
----
+----------------------------------------------------------------------------
 
 # Arquitetura
 
@@ -32,7 +32,7 @@ Mental Health Dynamics é um catálogo de dinâmicas e atividades gamificadas pa
 * Container: imagem Docker construída a partir do `Dockerfile`.
 * Infra: EC2 rodando Docker; Security Group liberando porta 8080 para o frontend; backend pode ficar isolado em subnet privada / outro SG.
 
----
+----------------------------------------------------------------------------
 
 # Estrutura do repositório
 
@@ -47,21 +47,20 @@ mental-health-app/
 ├─ package.json
 ├─ package-lock.json
 ├─ Dockerfile
-├─ docker-compose.yml     # opcional
 ├─ .dockerignore
 └─ README.md
 ```
 
----
+----------------------------------------------------------------------------
 
 # Pré-requisitos
 
-* Node.js (v18+ recomendado) e npm (para dev local).
+* Node.js (v18+ recomendado - usamos o 22) e npm (para dev local).
 * Docker (para build/exec de containers).
 * Acesso SSH à instância EC2 (chave `.pem`) ou outro método seguro (Instance Connect / SSM).
 * Conta AWS e permissão para criar EC2 / Security Groups (para deploy em nuvem).
 
----
+----------------------------------------------------------------------------
 
 # Rodando localmente (rápido)
 
@@ -136,7 +135,7 @@ docker stop mental-health-app
 docker rm mental-health-app
 ```
 
----
+----------------------------------------------------------------------------
 
 # Deploy rápido via GitHub → EC2 (manual)
 
@@ -238,13 +237,27 @@ curl -I http://<EC2_PUBLIC_IP>:8080
 # ou abra no navegador http://<EC2_PUBLIC_IP>:8080
 ```
 
-### Teste de isolamento (if backend private)
+-------------------------------------------------------------------------
 
-* Tentar `curl http://<EC2_PUBLIC_IP>:<BACKEND_PORT>` deve falhar (se bem isolado).
-* Do frontend (na EC2), `curl http://<BACKEND_PRIVATE_IP>:<BACKEND_PORT>` deve funcionar.
+### Nota prática (testes rápidos)
 
----
+Testes & imagens:
 
+1. Docker Local antes de colocar na EC2:
+
+<img width="1918" height="622" alt="docker-local_pre-ec2" src="https://github.com/user-attachments/assets/100dc676-e215-4a4a-b8a3-a3904369d90d" />
+
+2. EC2 rodando o docker:
+
+<img width="1855" height="867" alt="saude_mental na AWS" src="https://github.com/user-attachments/assets/2cb09c74-46e3-485b-bc66-30f207c65ce0" />
+
+3. Site em si rodando :)
+
+<img width="1882" height="967" alt="site-rodando_ec2" src="https://github.com/user-attachments/assets/a6229246-646e-49be-9043-e285ccaeea44" />
+
+# Dificuldades e cuidados:
+
+* Docker na EC2: para rodar o diretório como adm, e com relação também aos arquvios, utilize o método do github para evitar problemas.
 
 # Comandos úteis (resumo)
 
@@ -267,12 +280,8 @@ rsync -avz -e "ssh -i minha-chave.pem" ./meu-projeto ubuntu@<EC2_IP>:/home/ubunt
 
 ---
 
+-------------------------------------------------------------------------
 
 # Licença
 
 * Licença: Mackenzie Vitor Costa Lemos - 10438932 | David Haim Raiber - 10395618.
-* Obrigado por construir algo que promove saúde mental — se quiser, eu posso ajudar a transformar partes do front em componentes React, criar endpoints REST para salvar favoritos, ou montar o workflow completo de CI/CD.
-
----
-
-Se quiser, eu já te **entrego um README.md pronto** (arquivo) para você copiar/colar no repo ou eu já gero os arquivos `server.js`, `Dockerfile`, `docker-compose.yml` e `deploy_ec2.sh` ajustados ao seu repositório — diga qual opção prefere e eu crio tudo agora.
