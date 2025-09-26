@@ -1,29 +1,6 @@
 # Mental Health Dynamics — README
 
-> Aplicação de dinâmicas lúdicas para apoio à saúde mental — front-end em HTML/CSS/JS + back-end em Node.js (Express). Empacotada com Docker e preparada para deploy em EC2 (AWS).
-
----
-
-## Índice
-
-1. [Visão geral](#visão-geral)
-2. [Funcionalidades](#funcionalidades)
-3. [Arquitetura](#arquitetura)
-4. [Estrutura do repositório](#estrutura-do-repositório)
-5. [Pré-requisitos](#pré-requisitos)
-6. [Rodando localmente (rápido)](#rodando-localmente-rápido)
-7. [Usando Docker (local e EC2)](#usando-docker-local-e-ec2)
-8. [Deploy rápido via GitHub → EC2 (manual)](#deploy-rápido-via-github--ec2-manual)
-9. [Deploy automatizado (GitHub Actions) — sugestão](#deploy-automatizado-github-actions--sugestão)
-10. [Rede / AWS — VPC, Security Groups e isolamento](#rede--aws---vpc-security-groups-e-isolamento)
-11. [Testes e verificação](#testes-e-verificação)
-12. [Troubleshooting comum](#troubleshooting-comum)
-13. [Comandos úteis (resumo)](#comandos-úteis-resumo)
-14. [Boas práticas de segurança](#boas-práticas-de-segurança)
-15. [Próximos passos sugeridos](#próximos-passos-sugeridos)
-16. [Licença & Agradecimentos](#licença--agradecimentos)
-
----
+> Aplicação de dinâmicas lúdicas para que pessoas possam utilizar com outros que estejam passando por uma situação delicada de saúde mental — front-end em HTML/CSS/JS + back-end em Node.js (Express). Empacotada com Docker e preparada para deploy em EC2 (AWS).
 
 # Visão geral
 
