@@ -20,7 +20,6 @@ Mental Health Dynamics é um catálogo de dinâmicas e atividades gamificadas pa
 * Modal com detalhes, materiais, passos e dicas.
 * Favorites em memória (ex.: para futuras persistências).
 * Timer de atividade.
-* API simples (`/api/saudacao`) pronta para extensão.
 
 ---
 
